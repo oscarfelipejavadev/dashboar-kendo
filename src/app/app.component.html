@@ -1,0 +1,55 @@
+
+
+
+<kendo-dropdownlist [data]="[{id:0, text:''}, {id:1, text:'Price'}, {id:2, text:'Dont Price'}]" 
+  textField="text"
+  valueField="id" 
+  [(ngModel)]="selectedValue" 
+  (selectionChange)="selectionChange($event)" [disabled]="disableControls">
+</kendo-dropdownlist>
+
+<button [disabled]="disableControls">Delete</button>
+
+<kendo-grid [data]="gridView" 
+  [resizable]="true" 
+  [pageSize]="state.take" 
+  [skip]="state.skip" 
+  [sort]="state.sort"
+  [filter]="state.filter" 
+  [sortable]="{
+    allowUnsort: true,
+    mode: 'single'
+    }"
+  [sort]="sort1" [pageable]="true" filterable="menu" (sortChange)="sortChange($event)" [selectedKeys]="myChecks"
+  [selectable]="{enabled: true, checkboxOnly: true}" kendoGridSelectBy="ProductID"
+  (selectedKeysChange)="onCheckboxChange($event)">
+
+  <kendo-grid-checkbox-column title="Select all " 
+    showSelectAll="true"
+    [headerStyle]="{'background-color': '#666','color': '#fff','line-height': '1em'}"
+    [style]="{'background-color': '#eef4f6','color': '#fff'}"
+    [footerStyle]="{'background-color': '#888','color': '#fff'}">
+  </kendo-grid-checkbox-column>
+
+  <kendo-grid-column field="ProductID" title="ID">
+  </kendo-grid-column>
+
+  <kendo-grid-column field="ProductName" title="Name">
+  </kendo-grid-column>
+
+  <kendo-grid-column field="Category.CategoryName" title="Category">
+  </kendo-grid-column>
+
+  <kendo-grid-column field="UnitPrice" title="Price">
+  </kendo-grid-column>
+
+  <kendo-grid-column field="UnitsInStock" title="In stock">
+  </kendo-grid-column>
+
+  <kendo-grid-column title="Image">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <img [src]="dataItem.image" width="50">
+    </ng-template>
+  </kendo-grid-column>
+
+</kendo-grid>
