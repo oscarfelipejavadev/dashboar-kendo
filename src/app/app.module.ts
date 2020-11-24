@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { FormsModule } from '@angular/forms';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { IconsModule } from '@progress/kendo-angular-icons';
+
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
     BrowserAnimationsModule,
     GridModule,
     FormsModule,
-    DropDownsModule
+    DropDownsModule,
+    IconsModule
 
   ],
   providers: [],

@@ -5,15 +5,20 @@ import { GridDataResult } from '@progress/kendo-angular-grid';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
-  selectedValue;
+  comboDisable;
+
+  selectedValue ="";
   disableControls = true;
   disableCheckbox = false;
 
   myChecks = [];
+
+  menuStyle1: any;
+  menuStyle2: any;
 
   constructor() {
     this.loadProducts();
@@ -57,8 +62,8 @@ export class AppComponent {
   }
 
   selectionChange(selected) {
-    console.log( this.myChecks );
-    if( selected.text === 'Dont Price' ){
+    console.log(this.myChecks);
+    if (selected === 'Dont Price') {
       this.gridData.forEach(element => {
         element.image = this.myChecks.includes(element.ProductID) ? '../assets/Kendo.png' : '';
         element.Discontinued = false;
@@ -66,7 +71,7 @@ export class AppComponent {
       this.myChecks = [];
       this.disableControls = true;
       setTimeout(() => {
-        this.selectedValue = {id:0, text:''};
+        this.selectedValue = '';
       }, 100);
     }
   }
@@ -167,5 +172,24 @@ export class AppComponent {
       "sort": "",
     }
   ];
+
+  select(num:number) {
+    if ( num === 1){
+      this.menuStyle1 = {
+        'border-bottom':'2px solid blue'
+      };
+      this.menuStyle2 = {
+        'border-bottom':'0px'
+      };
+    }else{
+      this.menuStyle1 = {
+        'border-bottom':'0px'
+      };
+      this.menuStyle2 = {
+        'border-bottom':'2px solid blue'
+      };
+  
+    }
+  }
 
 }

@@ -1,0 +1,20 @@
+:host ::ng-deep .k-grid th.k-header { 
+    font-weight: bold;
+    border : none
+}
+
+:host ::ng-deep .k-grid td { 
+      
+    border : none
+}
+
+:host ::ng-deep .k-grid-header {
+    background-color: #ffffff;
+    
+}
+
+:host ::ng-deep .k-grid-toolbar {
+    border-left: none;
+    border-right: none;
+    background-color: #ffffff;
+}
